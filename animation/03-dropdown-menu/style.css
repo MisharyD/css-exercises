@@ -17,8 +17,31 @@
   padding: 0;
   margin: 0;
   background-color: rgb(99, 97, 97);
-
+  opacity: 1;
   display: none;
+}
+
+@keyframes shrink {
+  from {
+    display: block;
+    transform: scaleY(1);
+  }
+  to {
+    display: none;
+    transform: scaleY(0);
+  }
+}
+
+@keyframes expand {
+  from{
+    transform: scaleY(0)
+  }
+  80%{
+    transform: scaleY(1.05);
+  }
+  to{
+    transform: scaleY(1);
+  }
 }
 
 ul.dropdown-menu li:hover {
@@ -27,6 +50,13 @@ ul.dropdown-menu li:hover {
 
 .visible {
   display: block;
+  animation: expand 1s ease forwards;
+  transform-origin: top;
+}
+
+.hidden {
+  animation: shrink 0.5s ease forwards;
+  transform-origin: top;
 }
 
 
